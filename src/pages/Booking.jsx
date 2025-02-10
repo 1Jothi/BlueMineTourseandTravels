@@ -1,6 +1,46 @@
-import React from 'react'
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 function Booking() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    datetime: "",
+    destination: "Thailand", // Default option
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      booking_date: formData.datetime,
+      destination: formData.destination,
+      message: formData.message,
+    };
+
+    emailjs
+      .send(
+        "service_c1or5l7", // Replace with your EmailJS Service ID
+        "template_hdgb8lo", // Replace with your EmailJS Template ID
+        templateParams,
+        "Mv8pC7TO9YdU2udG_" // Replace with your EmailJS Public Key
+      )
+      .then(
+        () => {
+          alert("Booking Successful! Check your email.");
+        },
+        () => {
+          alert("Error sending email. Please try again.");
+        }
+      );
+  }; 
   return (
     <div>
         <div className="container-fluid bg-primary py-5 mb-5 hero-header">
@@ -105,10 +145,7 @@ function Booking() {
               <h6 className="text-white text-uppercase">Booking</h6>
               <h1 className="text-white mb-4">Online Booking</h1>
               <p className="mb-4">
-              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
-              </p>
-              <p className="mb-4">
-              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+                We are a passionate team committed to providing innovative solutions...
               </p>
               <a className="btn btn-outline-light py-3 px-5 mt-2" href="">
                 Read More
@@ -116,7 +153,7 @@ function Booking() {
             </div>
             <div className="col-md-6">
               <h1 className="text-white mb-4">Book A Tour</h1>
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="row g-3">
                   <div className="col-md-6">
                     <div className="form-floating">
@@ -125,6 +162,9 @@ function Booking() {
                         className="form-control bg-transparent"
                         id="name"
                         placeholder="Your Name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
                       />
                       <label htmlFor="name">Your Name</label>
                     </div>
@@ -136,38 +176,41 @@ function Booking() {
                         className="form-control bg-transparent"
                         id="email"
                         placeholder="Your Email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
                       />
                       <label htmlFor="email">Your Email</label>
                     </div>
                   </div>
                   <div className="col-md-6">
-                    <div
-                      className="form-floating date"
-                      id="date3"
-                      data-target-input="nearest"
-                    >
+                    <div className="form-floating date">
                       <input
-                        type="text"
-                        className="form-control bg-transparent datetimepicker-input"
+                        type="datetime-local"
+                        className="form-control bg-transparent"
                         id="datetime"
                         placeholder="Date & Time"
-                        data-target="#date3"
-                        data-toggle="datetimepicker"
+                        value={formData.datetime}
+                        onChange={handleChange}
+                        required
                       />
-                      <label htmlFor="datetime">Date &amp; Time</label>
+                      <label htmlFor="datetime">Date & Time</label>
                     </div>
                   </div>
                   <div className="col-md-6">
                     <div className="form-floating">
                       <select
                         className="form-select bg-transparent"
-                        id="select1"
+                        id="destination"
+                        value={formData.destination}
+                        onChange={handleChange}
                       >
-                        <option value={1}>Destination 1</option>
-                        <option value={2}>Destination 2</option>
-                        <option value={3}>Destination 3</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
                       </select>
-                      <label htmlFor="select1">Destination</label>
+                      <label htmlFor="destination">Destination</label>
                     </div>
                   </div>
                   <div className="col-12">
@@ -177,7 +220,8 @@ function Booking() {
                         placeholder="Special Request"
                         id="message"
                         style={{ height: 100 }}
-                        defaultValue={""}
+                        value={formData.message}
+                        onChange={handleChange}
                       />
                       <label htmlFor="message">Special Request</label>
                     </div>

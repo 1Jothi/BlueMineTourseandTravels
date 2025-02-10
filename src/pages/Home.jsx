@@ -1,7 +1,129 @@
-import React from 'react'
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
+
+const packages = [
+  {
+    country: "Russia",
+    nights: 3,
+    persons: 2,
+    price: 78000,
+    img: "assets/img/package-1.jpg",
+  },
+  {
+    country: "Thailand",
+    nights: 3,
+    persons: 2,
+    price: 13000,
+    img: "assets/img/package-2.jpg",
+  },
+  {
+    country: "Almaty",
+    nights: 4,
+    persons: 2,
+    price: 45000,
+    img: "assets/img/package-3.jpg",
+  },
+  {
+    country: "Bhutan",
+    nights: 2,
+    persons: 2,
+    price: 28000,
+    img: "assets/img/package-1.jpg",
+  },
+  {
+    country: "maldives",
+    nights: 3,
+    persons: 2,
+    price: 45000,
+    img: "assets/img/package-2.jpg",
+  },
+  {
+    country: "Mauririus",
+    nights: 3,
+    persons: 2,
+    price: 45000,
+    img: "assets/img/package-3.jpg",
+  },
+  {
+    country: "Nepal",
+    nights: 2,
+    persons: 2,
+    price: 15000,
+    img: "assets/img/package-1.jpg",
+  },
+  {
+    country: "Malaysia",
+    nights: 3,
+    persons: 2,
+    price: 12000,
+    img: "assets/img/package-2.jpg",
+  },
+  {
+    country: "Srilanka",
+    nights: 3,
+    persons: 2,
+    price: 13000,
+    img: "assets/img/package-1.jpg",
+  },
+];
+
 
 export default function Home() {
-  return (
+  const [search, setSearch] = useState("");
+  const [filteredPackages, setFilteredPackages] = useState([]);
+  const [showResults, setShowResults] = useState(false);
+  const handleSearch = () => {
+    const result = packages.filter((pkg) =>
+      pkg.country.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredPackages(result);
+    setShowResults(true);
+  };
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    datetime: "",
+    destination: "Thailand", // Default option
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      booking_date: formData.datetime,
+      destination: formData.destination,
+      message: formData.message,
+    };
+
+    emailjs
+      .send(
+        "service_c1or5l7", // Replace with your EmailJS Service ID
+        "template_hdgb8lo", // Replace with your EmailJS Template ID
+        templateParams,
+        "Mv8pC7TO9YdU2udG_" // Replace with your EmailJS Public Key
+      )
+      .then(
+        () => {
+          alert("Booking Successful! Check your email.");
+        },
+        () => {
+          alert("Error sending email. Please try again.");
+        }
+      );
+  }; 
+   return (
     <div>
       <div className="container-fluid bg-primary py-5 mb-5 hero-header">
         <div className="container py-5">
@@ -18,11 +140,17 @@ export default function Home() {
                   className="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5"
                   type="text"
                   placeholder="Eg: Thailand"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  onKeyPress={handleKeyPress}
                 />
                 <button
                   type="button"
                   className="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
                   style={{ marginTop: 7 }}
+                  onClick={handleSearch}
+                 
+                
                 >
                   Search
                 </button>
@@ -31,7 +159,59 @@ export default function Home() {
           </div>
         </div>
       </div>
-            {/* About Start */}
+      {showResults && (
+        <div className="container-xxl py-5">
+          <div className="container">
+            <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+              <h6 className="section-title bg-white text-center text-primary px-3">
+                Packages
+              </h6>
+              <h1 className="mb-5">Awesome Packages</h1>
+            </div>
+            <div className="row g-4 justify-content-center">
+              {filteredPackages.length > 0 ? (
+                filteredPackages.map((pkg, index) => (
+                  <div key={index} className="col-lg-4 col-md-6 wow fadeInUp">
+                    <div className="package-item">
+                      <div className="overflow-hidden">
+                        <img className="img-fluid" src={pkg.img} alt={pkg.country} />
+                      </div>
+                      <div className="d-flex border-bottom">
+                        <small className="flex-fill text-center border-end py-2">
+                          <i className="fa fa-map-marker-alt text-primary me-2" />
+                          {pkg.country}
+                        </small>
+                        <small className="flex-fill text-center border-end py-2">
+                          <i className="fa fa-calendar-alt text-primary me-2" />
+                          {pkg.nights} nights
+                        </small>
+                        <small className="flex-fill text-center py-2">
+                          <i className="fa fa-user text-primary me-2" />
+                          {pkg.persons} Person
+                        </small>
+                      </div>
+                      <div className="text-center p-4">
+                        <h3 className="mb-0">Rs {pkg.price}/- per person</h3>
+                        <div className="d-flex justify-content-center mb-2">
+                          <a href="#" className="btn btn-sm btn-primary px-3 border-end">
+                            Read More
+                          </a>
+                          <a href="#" className="btn btn-sm btn-primary px-3">
+                            Book Now
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-center">Not Available</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+   {/* About Start */}
     <div className="container-xxl py-5">
       <div className="container">
         <div className="row g-5">
@@ -211,6 +391,7 @@ export default function Home() {
     </div>
     {/* Service End */}
     {/* Destination Start */}
+    
     <div className="container-xxl py-5 destination">
       <div className="container">
         <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -235,9 +416,9 @@ export default function Home() {
                     src="assets/img/destination-1.jpg"
                     alt=""
                   />
-                  <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                  {/* <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
                   GST 5% + TCS 5%
-                  </div>
+                  </div> */}
                   <div className="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
                     Thailand
                   </div>
@@ -256,9 +437,9 @@ export default function Home() {
                     src="assets/img/destination-2.jpg"
                     alt=""
                   />
-                  <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                  {/* <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
                   GST 5% + TCS 5%
-                  </div>
+                  </div> */}
                   <div className="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
                     Malaysia
                   </div>
@@ -277,9 +458,9 @@ export default function Home() {
                     src="assets/img/destination-3.jpg"
                     alt=""
                   />
-                  <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                  {/* <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
                   GST 5% + TCS 5% 
-                  </div>
+                  </div> */}
                   <div className="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
                   Russia
                   </div>
@@ -302,9 +483,9 @@ export default function Home() {
                 alt=""
                 style={{ objectFit: "cover" }}
               />
-              <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+              {/* <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
               GST 5% + TCS 5%
-              </div>
+              </div> */}
               <div className="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
               Nepal
               </div>
@@ -313,6 +494,7 @@ export default function Home() {
         </div>
       </div>
     </div>
+    
     {/* Destination Start */}
     {/* Package Start */}
     <div className="container-xxl py-5">
@@ -366,6 +548,361 @@ Return airport transfers
 Exclusions:
 Lunch & Dinner		
 
+                </p>
+                <div className="d-flex justify-content-center mb-2">
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3 border-end"
+                    style={{ borderRadius: "30px 0 0 30px" }}
+                  >
+                    Read More
+                  </a>
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3"
+                    style={{ borderRadius: "0 30px 30px 0" }}
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div className="package-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+              </div>
+              <div className="d-flex border-bottom">
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-map-marker-alt text-primary me-2" />
+                  almaty
+                </small>
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-calendar-alt text-primary me-2" />4 night
+                </small>
+                <small className="flex-fill text-center py-2">
+                  <i className="fa fa-user text-primary me-2" />2 Person
+                </small>
+              </div>
+              <div className="text-center p-4">
+                <h3 className="mb-0">Rs 45000/- per person</h3>
+                <div className="mb-3">
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                </div>
+                <p>
+                Airfare – Rs. 50000/- Per Person (Approximately Ex-Chennai)
+                 GST 5% + TCS 5% extra from the total invoice
+                </p>
+                <p>
+                Inclusions:
+                4 nights 3* accommodation in Almaty with breakfast
+Almaty City tour
+Meadows & Chimbulak tour
+Kok tobe tour
+Return airport transfers
+Exclusions:
+Lunch & Dinner
+                </p>
+                <div className="d-flex justify-content-center mb-2">
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3 border-end"
+                    style={{ borderRadius: "30px 0 0 30px" }}
+                  >
+                    Read More
+                  </a>
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3"
+                    style={{ borderRadius: "0 30px 30px 0" }}
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div className="package-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+              </div>
+              <div className="d-flex border-bottom">
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-map-marker-alt text-primary me-2" />
+                  Bhutan
+                </small>
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-calendar-alt text-primary me-2" />2 night
+                </small>
+                <small className="flex-fill text-center py-2">
+                  <i className="fa fa-user text-primary me-2" />2 Person
+                </small>
+              </div>
+              <div className="text-center p-4">
+                <h3 className="mb-0">Rs 28000/- per person</h3>
+                <div className="mb-3">
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                </div>
+                <p>
+                Airfare – Rs. 20000/- Per Person (Approximately Ex-Chennai)
+                 GST 5% + TCS 5% extra from the total invoice
+                </p>
+                <p>
+                Inclusions:
+2 nights 3* accommodation in Thimphu with breakfast
+1 night 3* accommodation in Paro with breakfast
+Thimphu city tour
+Paro city tour
+Return airport transfers
+
+Exclusions:
+Lunch & Dinner
+                </p>
+                <div className="d-flex justify-content-center mb-2">
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3 border-end"
+                    style={{ borderRadius: "30px 0 0 30px" }}
+                  >
+                    Read More
+                  </a>
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3"
+                    style={{ borderRadius: "0 30px 30px 0" }}
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+<div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+<div className="package-item">
+<div className="overflow-hidden">
+<img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+</div>
+<div className="d-flex border-bottom">
+<small className="flex-fill text-center border-end py-2">
+<i className="fa fa-map-marker-alt text-primary me-2" />
+maldives
+</small>
+<small className="flex-fill text-center border-end py-2">
+<i className="fa fa-calendar-alt text-primary me-2" />3 night
+</small>
+<small className="flex-fill text-center py-2">
+<i className="fa fa-user text-primary me-2" />2 Person
+</small>
+</div>
+<div className="text-center p-4">
+<h3 className="mb-0">Rs 45000/- per person</h3>
+<div className="mb-3">
+<small className="fa fa-star text-primary" />
+<small className="fa fa-star text-primary" />
+<small className="fa fa-star text-primary" />
+<small className="fa fa-star text-primary" />
+<small className="fa fa-star text-primary" />
+</div>
+<p>
+Airfare – Rs. 20000/- Per Person (Approximately Ex-Chennai)
+GST 5% + TCS 5% extra from the total invoice
+</p>
+<p>
+Inclusions:
+3 nights 3* accommodation in Maldives with breakfast
+Male city tour (walking tour)
+Return airport transfers
+
+Exclusions:
+Lunch & Dinner
+</p>
+<div className="d-flex justify-content-center mb-2">
+<a
+href="#"
+className="btn btn-sm btn-primary px-3 border-end"
+style={{ borderRadius: "30px 0 0 30px" }}
+>
+Read More
+</a>
+<a
+href="#"
+className="btn btn-sm btn-primary px-3"
+style={{ borderRadius: "0 30px 30px 0" }}
+>
+Book Now
+</a>
+</div>
+</div>
+</div>
+</div>
+<div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div className="package-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+              </div>
+              <div className="d-flex border-bottom">
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-map-marker-alt text-primary me-2" />
+                  mauririus
+                </small>
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-calendar-alt text-primary me-2" />3 night
+                </small>
+                <small className="flex-fill text-center py-2">
+                  <i className="fa fa-user text-primary me-2" />2 Person
+                </small>
+              </div>
+              <div className="text-center p-4">
+                <h3 className="mb-0">Rs 45000/- per person</h3>
+                <div className="mb-3">
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                </div>
+                <p>
+                Airfare – Rs. 45000/- Per Person (Approximately Ex-Chennai)
+                 GST 5% + TCS 5% extra from the total invoice
+                </p>
+                <p>
+                Inclusions:
+                3 nights 3* accommodation in Mauritius with breakfast
+                 North Tour 
+                 South tour
+                    Ilu Aux Cert tour 
+                    Return airport transfers
+                    Exclusions:
+                    Lunch & Dinner
+                </p>
+                <div className="d-flex justify-content-center mb-2">
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3 border-end"
+                    style={{ borderRadius: "30px 0 0 30px" }}
+                  >
+                    Read More
+                  </a>
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3"
+                    style={{ borderRadius: "0 30px 30px 0" }}
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div className="package-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+              </div>
+              <div className="d-flex border-bottom">
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-map-marker-alt text-primary me-2" />
+                  nepal
+                </small>
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-calendar-alt text-primary me-2" />2 night
+                </small>
+                <small className="flex-fill text-center py-2">
+                  <i className="fa fa-user text-primary me-2" />2 Person
+                </small>
+              </div>
+              <div className="text-center p-4">
+                <h3 className="mb-0">Rs 15000/- per person</h3>
+                <div className="mb-3">
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                </div>
+                <p>
+                Airfare – Rs. 25000/- Per Person (Approximately Ex-Chennai)
+                 GST 5% + TCS 5% extra from the total invoice
+                </p>
+                <p>
+                Inclusions:
+2 nights 3* accommodation in Kathmandu with breakfast
+1 night 3* accommodation in Nagarkot with breakfast
+Kathmandu city tour + Temple tours
+Nagarkot city tour + Early morning sunrise tour
+Return airport transfers
+Exclusions:
+Lunch & Dinner	
+                </p>
+                <div className="d-flex justify-content-center mb-2">
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3 border-end"
+                    style={{ borderRadius: "30px 0 0 30px" }}
+                  >
+                    Read More
+                  </a>
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-primary px-3"
+                    style={{ borderRadius: "0 30px 30px 0" }}
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+            <div className="package-item">
+              <div className="overflow-hidden">
+                <img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+              </div>
+              <div className="d-flex border-bottom">
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-map-marker-alt text-primary me-2" />
+                  malaysia
+                </small>
+                <small className="flex-fill text-center border-end py-2">
+                  <i className="fa fa-calendar-alt text-primary me-2" />3 night
+                </small>
+                <small className="flex-fill text-center py-2">
+                  <i className="fa fa-user text-primary me-2" />2 Person
+                </small>
+              </div>
+              <div className="text-center p-4">
+                <h3 className="mb-0">Rs 12000/- per person</h3>
+                <div className="mb-3">
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                  <small className="fa fa-star text-primary" />
+                </div>
+                <p>
+                Airfare – Rs. 15000/- Per Person (Approximately Ex-Chennai)
+                 GST 5% + TCS 5% extra from the total invoice
+                </p>
+                <p>
+                Inclusions:
+3 nights 3* accommodation in Kuala lumpur with breakfast
+Kuala lumpur city tour
+Batu Caves
+KL tower tour
+Aquarium
+Return airport transfers
+Exclusions:
+Lunch & Dinner
                 </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
@@ -513,9 +1050,11 @@ Lunch & Dinner
         </div>
       </div>
     </div>
+    
+
     {/* Package End */}
     {/* Booking Start */}
-    <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    {/* <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
       <div className="container">
         <div className="booking p-5">
           <div className="row g-5 align-items-center">
@@ -596,6 +1135,113 @@ Lunch & Dinner
                         id="message"
                         style={{ height: 100 }}
                         defaultValue={""}
+                      />
+                      <label htmlFor="message">Special Request</label>
+                    </div>
+                  </div>
+                  <div className="col-12">
+                    <button
+                      className="btn btn-outline-light w-100 py-3"
+                      type="submit"
+                    >
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> */}
+    <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div className="container">
+        <div className="booking p-5">
+          <div className="row g-5 align-items-center">
+            <div className="col-md-6 text-white">
+              <h6 className="text-white text-uppercase">Booking</h6>
+              <h1 className="text-white mb-4">Online Booking</h1>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
+              <a className="btn btn-outline-light py-3 px-5 mt-2" href="">
+                Read More
+              </a>
+            </div>
+            <div className="col-md-6">
+              <h1 className="text-white mb-4">Book A Tour</h1>
+              <form onSubmit={handleSubmit}>
+                <div className="row g-3">
+                  <div className="col-md-6">
+                    <div className="form-floating">
+                      <input
+                        type="text"
+                        className="form-control bg-transparent"
+                        id="name"
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                      />
+                      <label htmlFor="name">Your Name</label>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-floating">
+                      <input
+                        type="email"
+                        className="form-control bg-transparent"
+                        id="email"
+                        placeholder="Your Email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                      />
+                      <label htmlFor="email">Your Email</label>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-floating date">
+                      <input
+                        type="datetime-local"
+                        className="form-control bg-transparent"
+                        id="datetime"
+                        placeholder="Date & Time"
+                        value={formData.datetime}
+                        onChange={handleChange}
+                        required
+                      />
+                      <label htmlFor="datetime">Date & Time</label>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-floating">
+                      <select
+                        className="form-select bg-transparent"
+                        id="destination"
+                        value={formData.destination}
+                        onChange={handleChange}
+                      >
+                        <option value="Thailand">Thailand</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                      </select>
+                      <label htmlFor="destination">Destination</label>
+                    </div>
+                  </div>
+                  <div className="col-12">
+                    <div className="form-floating">
+                      <textarea
+                        className="form-control bg-transparent"
+                        placeholder="Special Request"
+                        id="message"
+                        style={{ height: 100 }}
+                        value={formData.message}
+                        onChange={handleChange}
                       />
                       <label htmlFor="message">Special Request</label>
                     </div>

@@ -52,9 +52,9 @@ function Destination() {
                     src="assets/img/destination-1.jpg"
                     alt=""
                   />
-                  <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                  {/* <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
                   GST 5% + TCS 5%
-                  </div>
+                  </div> */}
                   <div className="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
                     Thailand
                   </div>
@@ -73,9 +73,9 @@ function Destination() {
                     src="assets/img/destination-2.jpg"
                     alt=""
                   />
-                  <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                  {/* <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
                   GST 5% + TCS 5%
-                  </div>
+                  </div> */}
                   <div className="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
                     Malaysia
                   </div>
@@ -94,9 +94,9 @@ function Destination() {
                     src="assets/img/destination-3.jpg"
                     alt=""
                   />
-                  <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+                  {/* <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
                   GST 5% + TCS 5%
-                  </div>
+                  </div> */}
                   <div className="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
                   Russia
                   </div>
@@ -119,9 +119,9 @@ function Destination() {
                 alt=""
                 style={{ objectFit: "cover" }}
               />
-              <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
+              {/* <div className="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">
               GST 5% + TCS 5% 
-              </div>
+              </div> */}
               <div className="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">
               Srilanka
               </div>

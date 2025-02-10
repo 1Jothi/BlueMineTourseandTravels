@@ -1,6 +1,22 @@
-import React from 'react'
 
+import React, { useState } from 'react';
 export default function Footer() {
+  const [showModal, setShowModal] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSignup = () => {
+    if (email && password) {
+      setMessage('Signup successful!');
+      setTimeout(() => {
+        setShowModal(false);
+        setMessage('');
+      }, 2000);
+    } else {
+      setMessage('Please fill in all fields.');
+    }
+  };
   return (
     <div>
            {/* Footer Start */}
@@ -32,15 +48,22 @@ export default function Footer() {
             <h4 className="text-white mb-3">Contact</h4>
             <p className="mb-2">
               <i className="fa fa-map-marker-alt me-3" />
-              123 Street, chennai  india
+              Shop No. FF 5, SK Complex, Chennai By-pass,<br></br>
+              no.1 Tolgate, Trichy-621-216
             </p>
             <p className="mb-2">
               <i className="fa fa-phone-alt me-3" />
-              +012 345 67890
+              <a href="https://wa.me/916383963146" target="_blank" rel="noopener noreferrer"
+                      style={{ color: "white", textDecoration: "underline", fontWeight: "bold" }}>
+                      +0431-2607260 | 73097075761
+                    </a>
             </p>
             <p className="mb-2">
               <i className="fa fa-envelope me-3" />
-              info@example.com
+              <a href="mailto:bluemineTravels@gmail.com"
+                      style={{ color: "white", textDecoration: "underline" }}>
+                      bluemineTravels@gmail.com
+                    </a>
             </p>
             <div className="d-flex pt-2">
               <a className="btn btn-outline-light btn-social" href="/">
@@ -115,10 +138,12 @@ export default function Footer() {
                 className="form-control border-primary w-100 py-3 ps-4 pe-5"
                 type="text"
                 placeholder="Your email"
+                onChange={(e) => setEmail(e.target.value)}
               />
               <button
                 type="button"
                 className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
+                onClick={() => setShowModal(true)}
               >
                 SignUp
               </button>
@@ -126,6 +151,39 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {showModal && (
+        <div className="modal fade show d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Sign Up</h5>
+                <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
+              </div>
+              <div className="modal-body">
+                <input
+                  type="email"
+                  className="form-control mb-3"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                  type="password"
+                  className="form-control mb-3"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                {message && <p className="text-success">{message}</p>}
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" onClick={() => setShowModal(false)}>Close</button>
+                <button type="button" className="btn btn-primary" onClick={handleSignup}>Sign Up</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="copyright">
           <div className="row">

@@ -560,7 +560,7 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                 </div>
                 <p>
-                Airfare – Rs. 15000/- Per Person (Approximately Ex-Chennai)
+                Airfare – Rs. 12000/- Per Person (Approximately Ex-Chennai)
 GST 5% + TCS 5% extra from the total invoice
                 </p>
                 <p>

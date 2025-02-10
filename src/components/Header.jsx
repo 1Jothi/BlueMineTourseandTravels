@@ -16,15 +16,23 @@ function Header() {
           >
             <small className="me-3 text-light">
               <i className="fa fa-map-marker-alt me-2" />
-              123 Street, chennai  india
+              Shop No. FF 5, SK Complex, Chennai By-pass,<br></br>
+                  no.1 Tolgate, Trichy-621-216
             </small>
+           
             <small className="me-3 text-light">
               <i className="fa fa-phone-alt me-2" />
-              +012 345 6789
+              <a href="https://wa.me/916383963146" target="_blank" rel="noopener noreferrer"
+                      style={{ color: "white", none: "underline", fontWeight: "bold" }}>
+                      +0431-2607260 | 73097075761
+                    </a>
             </small>
             <small className="text-light">
               <i className="fa fa-envelope-open me-2" />
-              info@example.com
+              <a href="mailto:bluemineTravels@gmail.com"
+                      style={{ color: "white", textDecoration: "none" }}>
+                      bluemineTravels@gmail.com
+                    </a>
             </small>
           </div>
         </div>
