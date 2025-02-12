@@ -65,7 +65,7 @@ function Packages() {
                 </div>
                 <p>
                 Airfare – Rs. 50000/- Per Person (Approximately Ex-Chennai)
-                GST 5% + TCS 5% extra from the total invoice.
+                {/* GST 5% + TCS 5% extra from the total invoice. */}
                 </p>
                 <p>Inclusions:
 4 nights 3* accommodation in Almaty with breakfast
@@ -124,7 +124,7 @@ Lunch & Dinner</p>
                 </div>
                 <p>
                 Airfare – Rs. 20000/- Per Person (Approximately Ex-Chennai)
-                GST 5% + TCS 5% extra from the total invoice
+                {/* GST 5% + TCS 5% extra from the total invoice */}
                 </p>
                 <p>
                 Inclusions:
@@ -187,7 +187,7 @@ Lunch & Dinner
                 </div>
                 <p>
                 Airfare – Rs. 20000/- Per Person (Approximately Ex-Chennai)
-GST 5% + TCS 5% extra from the total invoice
+{/* GST 5% + TCS 5% extra from the total invoice */}
                 </p>
                 <p>
                 Inclusions:
@@ -248,7 +248,7 @@ Lunch & Dinner
                 </div>
                 <p>
                 Airfare – Rs. 45000/- Per Person (Approximately Ex-Chennai)
-                GST 5% + TCS 5% extra from the total invoice
+                {/* GST 5% + TCS 5% extra from the total invoice */}
                 </p>
                 <p>
                 Inclusions:
@@ -309,7 +309,7 @@ Lunch & Dinner
                 </div>
                 <p>
                 Airfare – Rs. 16000/- Per Person (Approximately Ex-Chennai)
-                GST 5% + TCS 5% extra from the total invoice
+                {/* GST 5% + TCS 5% extra from the total invoice */}
                 </p>
                 <p>
                 Inclusions:
@@ -370,7 +370,7 @@ Lunch & Dinner
                 </div>
                 <p>
                 Airfare – Rs. 10000/- Per Person (Approximately Ex-Chennai)
-GST 5% + TCS 5% extra from the total invoice
+{/* GST 5% + TCS 5% extra from the total invoice */}
                 </p>
                 <p>
                 Inclusions:
@@ -434,7 +434,7 @@ Lunch & Dinner
                 </div>
                 <p>
                 Airfare – Rs. 90000/- Per Person (Approximately Ex-Chennai)
-GST 5% + TCS 5% extra from the total invoice
+{/* GST 5% + TCS 5% extra from the total invoice */}
                 </p>
                 <p>
                 Inclusions:
@@ -498,7 +498,7 @@ Lunch & Dinner
                 </div>
                 <p>
                 Airfare – Rs. 25000/- Per Person (Approximately Ex-Chennai)
-GST 5% + TCS 5% extra from the total invoice
+{/* GST 5% + TCS 5% extra from the total invoice */}
                 </p>
                 <p>
                 Inclusions:
@@ -561,7 +561,7 @@ Lunch & Dinner
                 </div>
                 <p>
                 Airfare – Rs. 12000/- Per Person (Approximately Ex-Chennai)
-GST 5% + TCS 5% extra from the total invoice
+{/* GST 5% + TCS 5% extra from the total invoice */}
                 </p>
                 <p>
                 Inclusions:
