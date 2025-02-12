@@ -27,10 +27,10 @@ function Booking() {
 
     emailjs
       .send(
-        "service_c1or5l7", // Replace with your EmailJS Service ID
-        "template_hdgb8lo", // Replace with your EmailJS Template ID
+        "", // Replace with your EmailJS Service ID
+        "", // Replace with your EmailJS Template ID
         templateParams,
-        "Mv8pC7TO9YdU2udG_" // Replace with your EmailJS Public Key
+        "" // Replace with your EmailJS Public Key
       )
       .then(
         () => {
@@ -105,7 +105,7 @@ function Booking() {
               >
                 <i className="fa fa-dollar-sign fa-3x text-white" />
               </div>
-              <h5 className="mt-4">Pay Online</h5>
+              <h5 className="mt-4">Book Now</h5>
               <hr className="w-25 mx-auto bg-primary mb-1" />
               <hr className="w-50 mx-auto bg-primary mt-0" />
               <p className="mb-0">

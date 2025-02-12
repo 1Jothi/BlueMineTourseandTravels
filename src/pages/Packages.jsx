@@ -48,14 +48,14 @@ function Packages() {
                   Almaty 
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />4 nights 
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&nights 
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 45000 per person</h3>
+                <h3 className="mb-0">WELCOME TO ALMATY</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -63,19 +63,12 @@ function Packages() {
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
                 </div>
-                <p>
-                Airfare – Rs. 50000/- Per Person (Approximately Ex-Chennai)
-                {/* GST 5% + TCS 5% extra from the total invoice. */}
-                </p>
-                <p>Inclusions:
-4 nights 3* accommodation in Almaty with breakfast
-Almaty City tour
-Meadows & Chimbulak tour
-Kok tobe tour
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner</p>
+                <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
                     href="#"
@@ -107,14 +100,14 @@ Lunch & Dinner</p>
                 Bhutan
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />2 nights 
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&nights 
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 28000 per person</h3>
+                <h3 className="mb-0">WELCOMR TO BHUTAN</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -122,22 +115,12 @@ Lunch & Dinner</p>
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
                 </div>
-                <p>
-                Airfare – Rs. 20000/- Per Person (Approximately Ex-Chennai)
-                {/* GST 5% + TCS 5% extra from the total invoice */}
-                </p>
-                <p>
-                Inclusions:
-2 nights 3* accommodation in Thimphu with breakfast
-1 night 3* accommodation in Paro with breakfast
-Thimphu city tour
-Paro city tour
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner
-
-                </p>
+                <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
                     href="#"
@@ -170,14 +153,14 @@ Lunch & Dinner
                 Maldives
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />3 nights 
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&Nights 
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" />Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 45000 per person</h3>
+                <h3 className="mb-0">WELCOME TO MALDIVES</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -185,21 +168,12 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
                 </div>
-                <p>
-                Airfare – Rs. 20000/- Per Person (Approximately Ex-Chennai)
-{/* GST 5% + TCS 5% extra from the total invoice */}
-                </p>
-                <p>
-                Inclusions:
-3 nights 3* accommodation in Maldives with breakfast
-Male city tour (walking tour)
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner
-
-
-                </p>
+                <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
                     href="#"
@@ -231,14 +205,14 @@ Lunch & Dinner
                   Mauritius
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />3 nights 
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&nights 
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 45000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO MAURITIUS</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -246,22 +220,12 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
                 </div>
-                <p>
-                Airfare – Rs. 45000/- Per Person (Approximately Ex-Chennai)
-                {/* GST 5% + TCS 5% extra from the total invoice */}
-                </p>
-                <p>
-                Inclusions:
-3 nights 3* accommodation in Mauritius with breakfast
-North Tour 
-South tour
-Ilu Aux Cert tour 
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner
-
-                </p>
+                <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
                     href="#"
@@ -292,14 +256,14 @@ Lunch & Dinner
                   Thailand
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />2 nights 
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&nights 
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 13000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO THAILAND</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -307,22 +271,12 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
                 </div>
-                <p>
-                Airfare – Rs. 16000/- Per Person (Approximately Ex-Chennai)
-                {/* GST 5% + TCS 5% extra from the total invoice */}
-                </p>
-                <p>
-                Inclusions:
-2 nights 3* accommodation in Pattaya with breakfast
-1 night 3* accommodation in Bangkok with breakfast
-Alcasar show
-Coral island tour with lunch
-Bangkok city tour
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner
-                </p>
+                <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
                     href="#"
@@ -353,14 +307,14 @@ Lunch & Dinner
                   Srilanka
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />1 nights 
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&Nights 
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 13000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO SRILANKA</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -368,25 +322,12 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
                 </div>
-                <p>
-                Airfare – Rs. 10000/- Per Person (Approximately Ex-Chennai)
-{/* GST 5% + TCS 5% extra from the total invoice */}
-                </p>
-                <p>
-                Inclusions:
-1 night 3* accommodation in Kandy with breakfast
-1 night 3* accommodation in Nuwara Eliya with breakfast
-1 night 3* accommodation  in Colombo with breakfast
-Kandy City tour 
-Pinnawala Elephant orphanage
-Nuwara eliya city tour
-Colombo city tour
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner
-
-                </p>
+                <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
                     href="#"
@@ -417,14 +358,14 @@ Lunch & Dinner
                   Russia
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />3 nights 
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&Nights 
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 78000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO RUSSIA</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -432,24 +373,12 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
                 </div>
-                <p>
-                Airfare – Rs. 90000/- Per Person (Approximately Ex-Chennai)
-{/* GST 5% + TCS 5% extra from the total invoice */}
-                </p>
-                <p>
-                Inclusions:
-3 nights 3* accommodation in Moscow with breakfast
-2 nights 3* accommodation in St. Petersburg with breakfast
-Moscow city tour
-St. Petersburg city tour
-Round trip speed train tickets (Moscow – St. Petersburg – Moscow)
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner		
-
-
-                </p>
+                <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
                     href="#"
@@ -481,14 +410,14 @@ Lunch & Dinner
                  Nepal
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />2 nights 
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&nights 
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 15000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO NEPAL</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -496,22 +425,12 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
                 </div>
-                <p>
-                Airfare – Rs. 25000/- Per Person (Approximately Ex-Chennai)
-{/* GST 5% + TCS 5% extra from the total invoice */}
-                </p>
-                <p>
-                Inclusions:
-2 nights 3* accommodation in Kathmandu with breakfast
-1 night 3* accommodation in Nagarkot with breakfast
-Kathmandu city tour + Temple tours
-Nagarkot city tour + Early morning sunrise tour
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner	
-
-                </p>
+                <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
                     href="#"
@@ -544,14 +463,14 @@ Lunch & Dinner
                   Malaysia
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />3 nights 
+                  <i className="fa fa-calendar-alt text-primary me-2" /> Days&Nights 
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 12000 per person</h3>
+                <h3 className="mb-0">WELCOME TO MALAYSIA</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -559,21 +478,12 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
                 </div>
-                <p>
-                Airfare – Rs. 12000/- Per Person (Approximately Ex-Chennai)
-{/* GST 5% + TCS 5% extra from the total invoice */}
-                </p>
-                <p>
-                Inclusions:
-3 nights 3* accommodation in Kuala lumpur with breakfast
-Kuala lumpur city tour
-Batu Caves
-KL tower tour
-Aquarium
-Return airport transfers
-Exclusions:
-Lunch & Dinner
-                </p>
+                <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+              </p>
+              <p className="mb-4">
+              We are a passionate team committed to providing innovative solutions to our clients. We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers.
+              </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
                     href="#"
@@ -739,7 +649,7 @@ Lunch & Dinner
               >
                 <i className="fa fa-dollar-sign fa-3x text-white" />
               </div>
-              <h5 className="mt-4">Pay Online</h5>
+              <h5 className="mt-4">Book now </h5>
               <hr className="w-25 mx-auto bg-primary mb-1" />
               <hr className="w-50 mx-auto bg-primary mt-0" />
               <p className="mb-0">
@@ -762,7 +672,7 @@ Lunch & Dinner
               <hr className="w-25 mx-auto bg-primary mb-1" />
               <hr className="w-50 mx-auto bg-primary mt-0" />
               <p className="mb-0">
-              We are a passionate team committed to providing innovative solutions to our clients.  We aim to drive results that create value for both businesses and customers.
+              We aim to drive results that create value for both businesses and customers.
               </p>
             </div>
           </div>

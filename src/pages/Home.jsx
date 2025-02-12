@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import { FaStar } from 'react-icons/fa';
+import Testimonial from './Testimonial';
 
 const packages = [
   {
@@ -69,6 +71,35 @@ const packages = [
 
 
 export default function Home() {
+  // Testimonial
+   const [reviews, setReviews] = useState([]);
+    const [newReview, setNewReview] = useState({ name: '', location: '', rating: 0, review: '', photo: null, video: null });
+  
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setNewReview({ ...newReview, [name]: value });
+    };
+  
+    const handleFileChange = (e) => {
+      const { name, files } = e.target;
+      setNewReview({ ...newReview, [name]: files[0] });
+    };
+  
+    const handleSubmit1 = (e) => {
+      e.preventDefault();
+      if (newReview.name && newReview.review) {
+        setReviews([...reviews, newReview]);
+        setNewReview({ name: '', location: '', rating: 0, review: '', photo: null, video: null });
+        sendWhatsAppThankYou(newReview.name);
+      }
+    };
+  
+    const sendWhatsAppThankYou = (name) => {
+      const message = `Thank you ${name} for your review! We appreciate your feedback.`;
+      const whatsappURL = `https://api.whatsapp.com/send?phone=+91XXXXXXXXXX&text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+    };
+  
   const [search, setSearch] = useState("");
   const [filteredPackages, setFilteredPackages] = useState([]);
   const [showResults, setShowResults] = useState(false);
@@ -109,10 +140,10 @@ export default function Home() {
 
     emailjs
       .send(
-        "service_c1or5l7", // Replace with your EmailJS Service ID
-        "template_hdgb8lo", // Replace with your EmailJS Template ID
+        "", // Replace with your EmailJS Service ID
+        "", // Replace with your EmailJS Template ID
         templateParams,
-        "Mv8pC7TO9YdU2udG_" // Replace with your EmailJS Public Key
+        "_" // Replace with your EmailJS Public Key
       )
       .then(
         () => {
@@ -517,14 +548,14 @@ export default function Home() {
                   Russia
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />3 nights
+                  <i className="fa fa-calendar-alt text-primary me-2" />days&nights
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 78000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO RUSSIA</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -533,21 +564,10 @@ export default function Home() {
                   <small className="fa fa-star text-primary" />
                 </div>
                 <p>
-                Airfare – Rs. 90000/- Per Person (Approximately Ex-Chennai)
-                 {/* GST 5% + TCS 5% extra from the total invoice */}
+                We are a passionate team committed to providing innovative solutions to our clients.
                 </p>
                 <p>
-                Inclusions:
-3 nights 3* accommodation in Moscow with breakfast
-2 nights 3* accommodation in St. Petersburg with breakfast
-Moscow city tour
-St. Petersburg city tour
-Round trip speed train tickets (Moscow – St. Petersburg – Moscow)
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner		
-
+                 We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
                 </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
@@ -579,14 +599,14 @@ Lunch & Dinner
                   almaty
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />4 night
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&nights
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" />Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 45000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO ALMATY</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -595,18 +615,10 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                 </div>
                 <p>
-                Airfare – Rs. 50000/- Per Person (Approximately Ex-Chennai)
-                 {/* GST 5% + TCS 5% extra from the total invoice */}
+                We are a passionate team committed to providing innovative solutions to our clients.
                 </p>
                 <p>
-                Inclusions:
-                4 nights 3* accommodation in Almaty with breakfast
-Almaty City tour
-Meadows & Chimbulak tour
-Kok tobe tour
-Return airport transfers
-Exclusions:
-Lunch & Dinner
+                 We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
                 </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
@@ -630,7 +642,7 @@ Lunch & Dinner
           <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div className="package-item">
               <div className="overflow-hidden">
-                <img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+                <img className="img-fluid" src="assets/img/package-3.jpg" alt="" />
               </div>
               <div className="d-flex border-bottom">
                 <small className="flex-fill text-center border-end py-2">
@@ -638,14 +650,14 @@ Lunch & Dinner
                   Bhutan
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />2 night
+                  <i className="fa fa-calendar-alt text-primary me-2" />days&night
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" />Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 28000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO BHUTAN</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -654,19 +666,10 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                 </div>
                 <p>
-                Airfare – Rs. 20000/- Per Person (Approximately Ex-Chennai)
-                 {/* GST 5% + TCS 5% extra from the total invoice */}
+                We are a passionate team committed to providing innovative solutions to our clients.
                 </p>
                 <p>
-                Inclusions:
-2 nights 3* accommodation in Thimphu with breakfast
-1 night 3* accommodation in Paro with breakfast
-Thimphu city tour
-Paro city tour
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner
+                 We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
                 </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
@@ -690,7 +693,7 @@ Lunch & Dinner
 <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
 <div className="package-item">
 <div className="overflow-hidden">
-<img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+<img className="img-fluid" src="assets/img/package-1.jpg" alt="" />
 </div>
 <div className="d-flex border-bottom">
 <small className="flex-fill text-center border-end py-2">
@@ -698,14 +701,14 @@ Lunch & Dinner
 maldives
 </small>
 <small className="flex-fill text-center border-end py-2">
-<i className="fa fa-calendar-alt text-primary me-2" />3 night
+<i className="fa fa-calendar-alt text-primary me-2" />days&night
 </small>
 <small className="flex-fill text-center py-2">
-<i className="fa fa-user text-primary me-2" />2 Person
+<i className="fa fa-user text-primary me-2" />Person
 </small>
 </div>
 <div className="text-center p-4">
-<h3 className="mb-0">Rs 45000/- per person</h3>
+<h3 className="mb-0">WELCOME TO MALDIVES</h3>
 <div className="mb-3">
 <small className="fa fa-star text-primary" />
 <small className="fa fa-star text-primary" />
@@ -714,18 +717,11 @@ maldives
 <small className="fa fa-star text-primary" />
 </div>
 <p>
-Airfare – Rs. 20000/- Per Person (Approximately Ex-Chennai)
-{/* GST 5% + TCS 5% extra from the total invoice */}
-</p>
-<p>
-Inclusions:
-3 nights 3* accommodation in Maldives with breakfast
-Male city tour (walking tour)
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner
-</p>
+                We are a passionate team committed to providing innovative solutions to our clients.
+                </p>
+                <p>
+                 We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
+                </p>
 <div className="d-flex justify-content-center mb-2">
 <a
 href="#"
@@ -756,14 +752,14 @@ Book Now
                   mauririus
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />3 night
+                  <i className="fa fa-calendar-alt text-primary me-2" />days&night
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" />Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 45000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO MAURIRIUS</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -772,18 +768,10 @@ Book Now
                   <small className="fa fa-star text-primary" />
                 </div>
                 <p>
-                Airfare – Rs. 45000/- Per Person (Approximately Ex-Chennai)
-                 {/* GST 5% + TCS 5% extra from the total invoice */}
+                We are a passionate team committed to providing innovative solutions to our clients.
                 </p>
                 <p>
-                Inclusions:
-                3 nights 3* accommodation in Mauritius with breakfast
-                 North Tour 
-                 South tour
-                    Ilu Aux Cert tour 
-                    Return airport transfers
-                    Exclusions:
-                    Lunch & Dinner
+                 We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
                 </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
@@ -807,7 +795,7 @@ Book Now
           <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div className="package-item">
               <div className="overflow-hidden">
-                <img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+                <img className="img-fluid" src="assets/img/package-3.jpg" alt="" />
               </div>
               <div className="d-flex border-bottom">
                 <small className="flex-fill text-center border-end py-2">
@@ -815,14 +803,14 @@ Book Now
                   nepal
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />2 night
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&night
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 15000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO NEPAL</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -831,18 +819,10 @@ Book Now
                   <small className="fa fa-star text-primary" />
                 </div>
                 <p>
-                Airfare – Rs. 25000/- Per Person (Approximately Ex-Chennai)
-                 {/* GST 5% + TCS 5% extra from the total invoice */}
+                We are a passionate team committed to providing innovative solutions to our clients.
                 </p>
                 <p>
-                Inclusions:
-2 nights 3* accommodation in Kathmandu with breakfast
-1 night 3* accommodation in Nagarkot with breakfast
-Kathmandu city tour + Temple tours
-Nagarkot city tour + Early morning sunrise tour
-Return airport transfers
-Exclusions:
-Lunch & Dinner	
+                 We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
                 </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
@@ -866,7 +846,7 @@ Lunch & Dinner
           <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div className="package-item">
               <div className="overflow-hidden">
-                <img className="img-fluid" src="assets/img/package-2.jpg" alt="" />
+                <img className="img-fluid" src="assets/img/package-1.jpg" alt="" />
               </div>
               <div className="d-flex border-bottom">
                 <small className="flex-fill text-center border-end py-2">
@@ -874,14 +854,14 @@ Lunch & Dinner
                   malaysia
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />3 night
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&night
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" />Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 12000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO MALAYSIA</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -890,19 +870,10 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                 </div>
                 <p>
-                Airfare – Rs. 15000/- Per Person (Approximately Ex-Chennai)
-                 {/* GST 5% + TCS 5% extra from the total invoice */}
+                We are a passionate team committed to providing innovative solutions to our clients.
                 </p>
                 <p>
-                Inclusions:
-3 nights 3* accommodation in Kuala lumpur with breakfast
-Kuala lumpur city tour
-Batu Caves
-KL tower tour
-Aquarium
-Return airport transfers
-Exclusions:
-Lunch & Dinner
+                 We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
                 </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
@@ -934,14 +905,14 @@ Lunch & Dinner
                   Thailand
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />3 night
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&Night
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" />Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 13000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO THAILAND</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -950,20 +921,10 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                 </div>
                 <p>
-                Airfare – Rs. 16000/- Per Person (Approximately Ex-Chennai)
-                 {/* GST 5% + TCS 5% extra from the total invoice */}
+                We are a passionate team committed to providing innovative solutions to our clients.
                 </p>
                 <p>
-                Inclusions:
-2 nights 3* accommodation in Pattaya with breakfast
-1 night 3* accommodation in Bangkok with breakfast
-Alcasar show
-Coral island tour with lunch
-Bangkok city tour
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner
+                 We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
                 </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
@@ -995,14 +956,14 @@ Lunch & Dinner
                   Srilanka
                 </small>
                 <small className="flex-fill text-center border-end py-2">
-                  <i className="fa fa-calendar-alt text-primary me-2" />3 night
+                  <i className="fa fa-calendar-alt text-primary me-2" />Days&Night
                 </small>
                 <small className="flex-fill text-center py-2">
-                  <i className="fa fa-user text-primary me-2" />2 Person
+                  <i className="fa fa-user text-primary me-2" /> Person
                 </small>
               </div>
               <div className="text-center p-4">
-                <h3 className="mb-0">Rs 13000/- per person</h3>
+                <h3 className="mb-0">WELCOME TO SRILANKA</h3>
                 <div className="mb-3">
                   <small className="fa fa-star text-primary" />
                   <small className="fa fa-star text-primary" />
@@ -1011,22 +972,10 @@ Lunch & Dinner
                   <small className="fa fa-star text-primary" />
                 </div>
                 <p>
-                Airfare – Rs. 10000/- Per Person (Approximately Ex-Chennai)
-{/* GST 5% + TCS 5% extra from the total invoice */}
+                We are a passionate team committed to providing innovative solutions to our clients.
                 </p>
                 <p>
-                Inclusions:
-1 night 3* accommodation in Kandy with breakfast
-1 night 3* accommodation in Nuwara Eliya with breakfast
-1 night 3* accommodation  in Colombo with breakfast
-Kandy City tour 
-Pinnawala Elephant orphanage
-Nuwara eliya city tour
-Colombo city tour
-Return airport transfers
-
-Exclusions:
-Lunch & Dinner
+                 We specialize in web development, graphic design, and IT consulting. Our goal is to deliver exceptional service, focused on quality, reliability, and customer satisfaction. We aim to drive results that create value for both businesses and customers. Clita erat ipsum et lorem et sit.
                 </p>
                 <div className="d-flex justify-content-center mb-2">
                   <a
@@ -1200,7 +1149,7 @@ Lunch & Dinner
               >
                 <i className="fa fa-dollar-sign fa-3x text-white" />
               </div>
-              <h5 className="mt-4">Pay Online</h5>
+              <h5 className="mt-4">Book now</h5>
               <hr className="w-25 mx-auto bg-primary mb-1" />
               <hr className="w-50 mx-auto bg-primary mt-0" />
               <p className="mb-0">
@@ -1346,66 +1295,55 @@ Lunch & Dinner
     </div>
     {/* Team End */}
     {/* Testimonial Start */}
-    <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-      <div className="container">
-        <div className="text-center">
-          <h6 className="section-title bg-white text-center text-primary px-3">
-            Testimonial
-          </h6>
-          <h1 className="mb-5">Our Clients Say!!!</h1>
-        </div>
-        <div className="owl-carousel testimonial-carousel position-relative">
-          <div className="testimonial-item bg-white text-center border p-4">
-            <img
-              className="bg-white rounded-circle shadow p-1 mx-auto mb-3"
-              src="assets/img/testimonial-1.jpg"
-              style={{ width: 80, height: 80 }}
-            />
-            <h5 className="mb-0">John Doe</h5>
-            <p>123 street india chennai</p>
-            <p className="mb-0">
-            We are a passionate team committed to providing innovative solutions to our clients.  We aim to drive results that create value for both businesses and customers.
-            </p>
-          </div>
-          <div className="testimonial-item bg-white text-center border p-4">
-            <img
-              className="bg-white rounded-circle shadow p-1 mx-auto mb-3"
-              src="assets/img/testimonial-2.jpg"
-              style={{ width: 80, height: 80 }}
-            />
-            <h5 className="mb-0">John Doe</h5>
-            <p> 123 street india chennai</p>
-            <p className="mt-2 mb-0">
-            We are a passionate team committed to providing innovative solutions to our clients.  We aim to drive results that create value for both businesses and customers.
-            </p>
-          </div>
-          <div className="testimonial-item bg-white text-center border p-4">
-            <img
-              className="bg-white rounded-circle shadow p-1 mx-auto mb-3"
-              src="assets/img/testimonial-3.jpg"
-              style={{ width: 80, height: 80 }}
-            />
-            <h5 className="mb-0">John Doe</h5>
-            <p> 123 street india chennai</p>
-            <p className="mt-2 mb-0">
-            We are a passionate team committed to providing innovative solutions to our clients.  We aim to drive results that create value for both businesses and customers.
-            </p>
-          </div>
-          <div className="testimonial-item bg-white text-center border p-4">
-            <img
-              className="bg-white rounded-circle shadow p-1 mx-auto mb-3"
-              src="assets/img/testimonial-4.jpg"
-              style={{ width: 80, height: 80 }}
-            />
-            <h5 className="mb-0">John Doe</h5>
-            <p>123 street india  chennai</p>
-            <p className="mt-2 mb-0">
-            We are a passionate team committed to providing innovative solutions to our clients.  We aim to drive results that create value for both businesses and customers.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div>  
+         <div className="container-xxl py-5 wow fadeInUp">
+           <div className="container">
+             <div className="text-center">
+               <h6 className="section-title bg-white text-primary px-3">Testimonial</h6>
+               <h1 className="mb-5">Our Clients Say!!!</h1>
+             </div>
+             
+             <div className="row">
+               {reviews.map((rev, index) => (
+                 <div key={index} className="col-md-4 testimonial-item bg-white text-center border p-4 shadow-lg rounded">
+                   {rev.photo && <img src={URL.createObjectURL(rev.photo)} alt='user' className="rounded-circle mb-3" style={{ width: 80, height: 80 }} />}
+                   <h5>{rev.name}</h5>
+                   <p>{rev.location}</p>
+                   <p>{rev.review}</p>
+                   <div className="stars">
+                     {[...Array(5)].map((star, i) => (
+                       <FaStar key={i} color={i < rev.rating ? "gold" : "gray"} />
+                     ))}
+                   </div>
+                   {rev.video && (
+                     <video width="100%" controls>
+                       <source src={URL.createObjectURL(rev.video)} type="video/mp4" />
+                     </video>
+                   )}
+                 </div>
+               ))}
+             </div>
+           </div>
+         </div>
+         
+         <div className="container py-5">
+           <h2 className="text-center">Submit Your Review</h2>
+           <form onSubmit={handleSubmit1} className="p-4 bg-light rounded shadow-lg">
+             <input type="text" name="name" placeholder="Your Name" className="form-control mb-3" value={newReview.name} onChange={handleInputChange} required />
+             <input type="text" name="location" placeholder="Your Location" className="form-control mb-3" value={newReview.location} onChange={handleInputChange} />
+             <textarea name="review" placeholder="Write your review here..." className="form-control mb-3" value={newReview.review} onChange={handleInputChange} required></textarea>
+             <input type="file" name="photo" accept="image/*" className="form-control mb-3" onChange={handleFileChange} />
+             <input type="file" name="video" accept="video/*" className="form-control mb-3" onChange={handleFileChange} />
+             <label className="mb-2">Rating:</label>
+             <div className="mb-3">
+               {[...Array(5)].map((star, i) => (
+                 <FaStar key={i} color={i < newReview.rating ? "gold" : "gray"} onClick={() => setNewReview({ ...newReview, rating: i + 1 })} style={{ cursor: 'pointer' }} />
+               ))}
+             </div>
+             <button type="submit" className="btn btn-primary w-100">Submit Review</button>
+           </form>
+         </div>
+       </div>
     {/* Testimonial End */}  
     </div>
   )
