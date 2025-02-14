@@ -53,10 +53,15 @@ export default function Footer() {
             </p>
             <p className="mb-2">
               <i className="fa fa-phone-alt me-3" />
-              <a href="https://wa.me/916383963146" target="_blank" rel="noopener noreferrer"
-                      style={{ color: "white", textDecoration: "underline", fontWeight: "bold" }}>
-                      +0431-2607260 | 73097075761
-                    </a>
+              <a href="tel:+919597109652" style={{ color: "white", textDecoration: "none", fontWeight: "bold" }}>
+    9597109652
+  </a>
+  
+  {" | "}
+  
+  <a href="tel:+917309707576" style={{ color: "white", textDecoration: "none", fontWeight: "bold" }}>
+    73097075761
+  </a>
             </p>
             <p className="mb-2">
               <i className="fa fa-envelope me-3" />

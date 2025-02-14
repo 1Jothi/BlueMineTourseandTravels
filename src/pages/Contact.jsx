@@ -100,7 +100,7 @@ function Contact() {
                   <p className="mb-0">
                     <a href="https://wa.me/916383963146" target="_blank" rel="noopener noreferrer"
                       style={{ color: "black", textDecoration: "underline", fontWeight: "bold" }}>
-                      +0431-2607260 | 73097075761
+                      9597109652 | 73097075761
                     </a>
                   </p>
                 </div>
